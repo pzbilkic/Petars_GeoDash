@@ -40,7 +40,7 @@ public class Game {
 	 * get it...
 	 */
 	public void moveObjects() {
-		//player.move();
+		player.move();
 	}
 
 
@@ -85,8 +85,24 @@ public class Game {
 	/** called when the up arrow is pressed.  You don't have to do anything
 	 * here, but you can if your game uses this event*/
     public  void upHit(ActionEvent e) {
+		player.setDy(-10);
 		System.out.println("Up!!");
-		player.jump();
+		/*
+		try {
+			wait(100);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		player.setDy(10);
+		try {
+			wait(100);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		*/
+		//player.setDy(0);
 		
 
 

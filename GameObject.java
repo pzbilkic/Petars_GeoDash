@@ -60,21 +60,7 @@ public class GameObject {
 		moveX();
 		moveY();
 	}
-	public void jump() {
-		this.dy = -10;
-		for(int i = (int)this.dy; i < 0; i++){
-			moveY();
-			dy++;
-			System.out.println(dy);
-			/*
-			try{Thread.sleep(100);}
-			catch(InterruptedException ex){
-    			Thread.currentThread().interrupt();}
-				*/
-		}
 
-		System.out.println("jumped up!");
-	}
 	public void moveY() {
 		rect.setLocation(rect.x+0, (int) (rect.y+dy));
 	}
