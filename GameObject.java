@@ -23,19 +23,29 @@ public class GameObject {
 	/** rect has info about location and dimension of this game object*/
 	private Rectangle rect;
 	/** Color of this object */
-	private Color color;
+	protected Color color;
 	/** dx is how far this object moves this Rectangle each time I move
 	 *  dy is how far this object moves the Rectangle each time I move
 	 *  If dy or dx change between moves, it will look like this object is 
 	 *  accelerating or decelerating in that direction.
 	 */
 	private double dx, dy;
+
+	protected int x, y , w, h;
 	
 	//Method for square intialization
 	public GameObject(int x, int y, int w, int h, Color c) {
 		this(x,y,w,h,c,0,0);
 		this.rect = new Rectangle(x,y,w,h);
 		
+	}
+	public GameObject(int x, int y, int w, int h, Color c, boolean tri){
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
+		this.color = c;
+
 	}
 	public GameObject(int x, int y, int w, int h, Color c, int dx, int dy) {
 		rect = new Rectangle(x,y,w,h);

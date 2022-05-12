@@ -8,8 +8,11 @@ import java.awt.event.ActionEvent;
 public class Game {
 
 
-    private Square player = new Square(10, 200, 30, 30, new Color(25,25,150));
+    private Square player = new Square(10, 200, 30, 30, new Color(200,25,50));
+	private Triangle hazard = new Triangle(40,200,30,30,new Color(25,25,150),true);
+	
 	private ArrayList<GameObject> objects = new ArrayList<>();
+	
 
     public Game(){
         
@@ -52,11 +55,14 @@ public class Game {
 	 */
     public void drawTheGame(Graphics g) {
 		player.draw(g);
+		
 		g.setColor(new ColorUIResource(100, 200, 10));
-		g.fillRect(0, 230, 500, 200);
+		//g.fillRect(0, 230, 500, 200);
 		for(GameObject go:this.objects) {
 			go.draw(g);
 		}
+		hazard.draw(g);
+		//System.out.println("dreew triangle");
 
 	}
 		
