@@ -5,7 +5,5 @@ public class triangle {
     int x, y;
     //constructor
 
-    fillPolygon graphics g(){
-        
-    }
+
 }
