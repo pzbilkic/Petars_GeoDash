@@ -29,14 +29,17 @@ public class GameObject {
 	 *  If dy or dx change between moves, it will look like this object is 
 	 *  accelerating or decelerating in that direction.
 	 */
-	private double dx, dy;
+	protected double dx, dy;
 
 	protected int x, y , w, h;
+	public int ground = 195;
 	
 	//Method for square intialization
 	public GameObject(int x, int y, int w, int h, Color c) {
 		this(x,y,w,h,c,0,0);
+		//System.out.println(y);
 		this.rect = new Rectangle(x,y,w,h);
+		this.dy = 5;
 		
 	}
 	public GameObject(int x, int y, int w, int h, Color c, boolean tri){
@@ -45,6 +48,7 @@ public class GameObject {
 		this.w = w;
 		this.h = h;
 		this.color = c;
+		this.dx = -5;
 
 	}
 	public GameObject(int x, int y, int w, int h, Color c, int dx, int dy) {
@@ -70,9 +74,16 @@ public class GameObject {
 		moveX();
 		moveY();
 	}
+	
+	
 
 	public void moveY() {
-		rect.setLocation(rect.x+0, (int) (rect.y+dy));
+		if(y<ground){
+			y+=dy;
+			rect.y = y;
+			rect.setLocation(rect.x+0, (int) (rect.y+dy));
+			//System.out.println("ground less then");
+		}
 	}
 	public void moveX() {
 		rect.setLocation((int) (rect.x+dx), rect.y+0);
@@ -90,5 +101,12 @@ public class GameObject {
 	
 	public boolean collidedWith(GameObject go) {
 		return this.rect.intersects(go.rect);
+	}
+
+	public double getY(){
+		return y;
+	}
+	public void setY(int y){
+		this.y = y;
 	}
 }

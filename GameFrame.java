@@ -44,6 +44,7 @@ public class GameFrame extends JFrame {
 	 * Timer goes off, the game is told to update itself and then the 
 	 * view is refreshed.  
 	 */
+
 	private void setUpStuff() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
