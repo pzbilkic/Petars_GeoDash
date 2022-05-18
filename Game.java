@@ -12,7 +12,7 @@ public class Game {
 	
 
     private Square player = new Square(60, 200, 30, 30, new Color(200,25,50));
-	private Triangle hazard = new Triangle(200,200,30,30,new Color(25,25,150),true);
+	//private Triangle hazard = new Triangle(200,200,30,30,new Color(25,25,150),true);
 	
 	private ArrayList<GameObject> objects = new ArrayList<>();
 	
@@ -31,7 +31,7 @@ public class Game {
 	 */
 	int updates = 0;
 	int playerv = 0;
-	boolean up = true;
+	boolean up = false;
 	public void updateGame() {
 		//System.out.println("Moving Objects!!");
 		
@@ -40,12 +40,15 @@ public class Game {
 		if(updates%100 == 0){
 			updateObjects();
 		}
+		if(up == true){
+			if(player.y < 110){
+				player.setDy(10);
+				up = false;
+				
+		}
+		
+		}
 		updates+=1;
-		/*
-		player.setDy(playerv);
-		System.out.println(player.getDy());
-		//updateObjects();
-		*/
 		
 
 	}
@@ -76,7 +79,7 @@ public class Game {
 	public void moveObjects() {
 
 		player.move();
-		//System.out.println(player.getY());
+		
 		for(GameObject go:this.objects) {
 			go.move();
 		}
@@ -93,7 +96,7 @@ public class Game {
 		player.draw(g);
 		
 		g.setColor(new ColorUIResource(100, 200, 10));
-		//g.fillRect(0, 230, 500, 200);
+		g.fillRect(0, 230, 500, 200);
 		for(GameObject go:this.objects) {
 			go.draw(g);
 		}
@@ -128,8 +131,10 @@ public class Game {
 	 * here, but you can if your game uses this event*/
     public  void upHit(ActionEvent e) {
 		System.out.println("Up!!");
-		player.setY(100);
-		//System.out.println(player.getY());
+		//player.setY(100);
+		player.setDy(-10);
+		up = true;
+		//System.out.println(player.getDy());
 		
 	}
 	/** called when the up arrow is released.  You don't have to do anything

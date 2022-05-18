@@ -32,14 +32,14 @@ public class GameObject {
 	protected double dx, dy;
 
 	protected int x, y , w, h;
-	public int ground = 195;
+	public int ground = 230;
 	
 	//Method for square intialization
 	public GameObject(int x, int y, int w, int h, Color c) {
 		this(x,y,w,h,c,0,0);
 		//System.out.println(y);
 		this.rect = new Rectangle(x,y,w,h);
-		this.dy = 5;
+		this.dy = 10;
 		
 	}
 	public GameObject(int x, int y, int w, int h, Color c, boolean tri){
@@ -47,6 +47,7 @@ public class GameObject {
 		this.y = y;
 		this.w = w;
 		this.h = h;
+		//System.out.println("this is the height: " + h);
 		this.color = c;
 		this.dx = -5;
 
@@ -73,17 +74,21 @@ public class GameObject {
 	public void move() {
 		moveX();
 		moveY();
+		if(y+30 == ground){
+			dy = 0;
+		}
 	}
 	
 	
 
 	public void moveY() {
-		if(y<ground){
+	if(!(y == ground)){
 			y+=dy;
 			rect.y = y;
 			rect.setLocation(rect.x+0, (int) (rect.y+dy));
-			//System.out.println("ground less then");
+			//System.out.println(this.h);
 		}
+
 	}
 	public void moveX() {
 		rect.setLocation((int) (rect.x+dx), rect.y+0);
