@@ -49,7 +49,7 @@ public class GameObject {
 		this.h = h;
 		//System.out.println("this is the height: " + h);
 		this.color = c;
-		this.dx = -5;
+		this.dx = -10;
 
 	}
 	public GameObject(int x, int y, int w, int h, Color c, int dx, int dy) {
