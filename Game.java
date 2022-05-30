@@ -5,6 +5,10 @@ import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.lang.Thread;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+
 
 public class Game {
 
@@ -35,7 +39,10 @@ public class Game {
     boolean up = false;
     public void updateGame() {
         //System.out.println("Moving Objects!!");
-        
+        /*
+        if(!end){
+            endGame();
+        }*/
         
         moveObjects();
         checkCollisions();
@@ -51,6 +58,7 @@ public class Game {
         }
         
         }
+      
         count++;
         updates+=1;
         
@@ -63,7 +71,10 @@ public class Game {
 
     public void updateObjects(){
         int tmp = (int) ( Math.random() * 2 + 1); // will return either 1 or 2
-        createTri(tmp);
+        if(!end){
+            createTri(tmp);
+        }
+  
         
     }
     public void createTri(int n){
@@ -79,14 +90,36 @@ public class Game {
     /**
      * Right now I am checking for collisions between GameObjects
      */
-    public void checkCollisions() {
-            
+    public boolean end = false;
+    public boolean checkCollisions() {
+        //end = true;
+        return false;  
         }
         
  
     /**
      * get it...
      */
+
+    public void endGame(){
+        if(checkCollisions()){
+            endgame END = new endgame(0, 0, 0, 0, new Color(225,0,0));
+            
+            int counter = count;
+            String pappy = "Score:" + counter + "!";
+    
+            END.setScore(count);
+            END.setPappy(pappy);
+
+            objects.add(END);
+            //end = true;
+        }
+
+
+      
+
+}
+
 
     public void moveObjects() {
 
@@ -113,11 +146,15 @@ public class Game {
         for(GameObject go:this.objects) {
             go.draw(g);
         }
+        if(!end){
+            g.drawString(answer, 10, 280);
+        }
 
-        g.drawString(answer, 10, 280);
 
 
+        
     }
+
         
     
     /** called when the left arrow is pressed.  Probably move something

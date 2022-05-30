@@ -34,7 +34,7 @@ public class GameObject {
 	protected int x, y , w, h;
 	public int ground = 230;
 	
-	//Method for square intialization
+	//Method for PLayer intialization
 	public GameObject(int x, int y, int w, int h, Color c) {
 		this(x,y,w,h,c,0,0);
 		//System.out.println(y);
@@ -42,22 +42,28 @@ public class GameObject {
 		this.dy = 10;
 		
 	}
+
+	//TRIANGLE CONSTRUTOR
 	public GameObject(int x, int y, int w, int h, Color c, boolean tri){
 		this.x = x;
 		this.y = y;
 		this.w = w;
 		this.h = h;
-		//System.out.println("this is the height: " + h);
 		this.color = c;
 		this.dx = -10;
 
 	}
-	public GameObject(int x, int y, int w, int h, Color c, int dx, int dy) {
+	public GameObject(int x2, int y2, int w2, int h2, Color c, int i, int j) {
+	}
+
+	/*
+	public GameObject(int x, int y, int w, int h, Color c, double platform, int i) {
 		rect = new Rectangle(x,y,w,h);
 		color = c;
-		this.dx = dx;
-		this.dy = dy;
+		this.dx = dx = -10;
+
 	}
+	*/
 	public double getDx() {
 		return dx;
 	}
