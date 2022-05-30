@@ -33,13 +33,15 @@ public class GameObject {
 
 	protected int x, y , w, h;
 	public int ground = 230;
+	protected Hitbox hit;
 	
 	//Method for PLayer intialization
 	public GameObject(int x, int y, int w, int h, Color c) {
 		this(x,y,w,h,c,0,0);
-		//System.out.println(y);
+		System.out.println("X: " + x);
 		this.rect = new Rectangle(x,y,w,h);
 		this.dy = 10;
+		this.hit = new Hitbox(h, w, x, y);
 		
 	}
 
@@ -51,6 +53,7 @@ public class GameObject {
 		this.h = h;
 		this.color = c;
 		this.dx = -10;
+		this.hit = new Hitbox(w, h, x, y, true);
 
 	}
 	public GameObject(int x2, int y2, int w2, int h2, Color c, int i, int j) {
@@ -89,6 +92,8 @@ public class GameObject {
 
 	public void moveY() {
 	if(!(y == ground)){
+			hit.setY((int)(y + dy));
+			
 			y+=dy;
 			rect.y = y;
 			rect.setLocation(rect.x+0, (int) (rect.y+dy));
@@ -97,6 +102,9 @@ public class GameObject {
 
 	}
 	public void moveX() {
+		
+		hit.setX((int)(x + dx));
+	
 		rect.setLocation((int) (rect.x+dx), rect.y+0);
 	}
 	public Rectangle getRect() {

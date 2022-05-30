@@ -46,6 +46,7 @@ public class Game {
         
         moveObjects();
         checkCollisions();
+        //System.out.println(player.hit.getX());
         if(updates%100 == 0){
             updateObjects();
             
@@ -92,9 +93,16 @@ public class Game {
      */
     public boolean end = false;
     public boolean checkCollisions() {
-        //end = true;
-        return false;  
+        for(GameObject o : objects){
+            if(player.hit.checkCollision(o.hit)){
+                System.out.println("HIT");
+                return true;
+            }
         }
+        return false;
+        
+          
+    }
         
  
     /**
