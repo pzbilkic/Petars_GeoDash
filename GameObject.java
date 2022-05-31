@@ -33,6 +33,9 @@ public class GameObject {
 
 	protected int x, y , w, h;
 	public int ground = 230;
+	public void setGround(int n){
+		ground = n;
+	}
 	protected Hitbox hit;
 	
 	//Method for PLayer intialization

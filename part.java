@@ -28,7 +28,7 @@ public class part {
             ArrayList<GameObject> three = new ArrayList<GameObject>();
             three.add(new platform(700, 200, 30, 30, new Color(25,25,150),0));
             three.add(new platform(730, 200, 30, 30, new Color(25,25,150),0));
-            three.add(new platform(730, 230, 30, 30, new Color(25,25,150),0));
+            three.add(new platform(730, 170, 30, 30, new Color(25,25,150),0));
             three.add(new Triangle(760, 200, 30, 30, new Color(25,25,150), true));
             three.add(new Triangle(790, 200, 30, 30, new Color(25,25,150), true));
             return three;
@@ -40,13 +40,13 @@ public class part {
             four.add(new platform(760, 200, 30, 30, new Color(25,25,150),0));
             four.add(new platform(790, 200, 30, 30, new Color(25,25,150),0));
             four.add(new platform(820, 200, 30, 30, new Color(25,25,150),0));
-            four.add(new platform(820, 230, 30, 30, new Color(25,25,150),0));
+            four.add(new platform(820, 170, 30, 30, new Color(25,25,150),0));
             four.add(new platform(850, 200, 30, 30, new Color(25,25,150),0));
-            four.add(new Triangle(850, 230, 30, 30, new Color(25,25,150), true));
+            four.add(new Triangle(850, 170, 30, 30, new Color(25,25,150), true));
             four.add(new platform(880, 200, 30, 30, new Color(25,25,150),0));
-            four.add(new platform(880, 230, 30, 30, new Color(25,25,150),0));
-            four.add(new Triangle(910, 230, 30, 30, new Color(25,25,150), true));
-            four.add(new Triangle(940, 230, 30, 30, new Color(25,25,150), true));
+            four.add(new platform(880, 170, 30, 30, new Color(25,25,150),0));
+            four.add(new Triangle(910, 170, 30, 30, new Color(25,25,150), true));
+            four.add(new Triangle(940, 170, 30, 30, new Color(25,25,150), true));
 
             return four;
         }
@@ -54,10 +54,10 @@ public class part {
             ArrayList<GameObject> five = new ArrayList<GameObject>();
             five.add(new platform(700, 200, 30, 30, new Color(25,25,150),0));
             five.add(new platform(730, 200, 30, 30, new Color(25,25,150),0));
-            five.add(new Triangle(730, 230, 30, 30, new Color(25,25,150), true));
+            five.add(new Triangle(730, 170, 30, 30, new Color(25,25,150), true));
             five.add(new platform(760, 200, 30, 30, new Color(25,25,150),0));
-            five.add(new Triangle(790, 230, 30, 30, new Color(25,25,150), true));
-            five.add(new Triangle(820, 230, 30, 30, new Color(25,25,150), true));
+            five.add(new Triangle(790, 170, 30, 30, new Color(25,25,150), true));
+            five.add(new Triangle(820, 170, 30, 30, new Color(25,25,150), true));
             return five;
         }
         return master;
