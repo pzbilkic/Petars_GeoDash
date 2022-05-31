@@ -45,8 +45,8 @@ public class part {
             four.add(new Triangle(850, 170, 30, 30, new Color(25,25,150), true));
             four.add(new platform(880, 200, 30, 30, new Color(25,25,150),0));
             four.add(new platform(880, 170, 30, 30, new Color(25,25,150),0));
-            four.add(new Triangle(910, 170, 30, 30, new Color(25,25,150), true));
-            four.add(new Triangle(940, 170, 30, 30, new Color(25,25,150), true));
+            four.add(new Triangle(910, 200, 30, 30, new Color(25,25,150), true));
+            four.add(new Triangle(940, 200, 30, 30, new Color(25,25,150), true));
 
             return four;
         }
@@ -56,8 +56,8 @@ public class part {
             five.add(new platform(730, 200, 30, 30, new Color(25,25,150),0));
             five.add(new Triangle(730, 170, 30, 30, new Color(25,25,150), true));
             five.add(new platform(760, 200, 30, 30, new Color(25,25,150),0));
-            five.add(new Triangle(790, 170, 30, 30, new Color(25,25,150), true));
-            five.add(new Triangle(820, 170, 30, 30, new Color(25,25,150), true));
+            five.add(new Triangle(790, 200, 30, 30, new Color(25,25,150), true));
+            five.add(new Triangle(820, 200, 30, 30, new Color(25,25,150), true));
             return five;
         }
         return master;
