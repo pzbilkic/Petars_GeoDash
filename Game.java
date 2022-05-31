@@ -52,7 +52,7 @@ public class Game {
             
             }
             if(up == true){
-                if(player.y < 110){
+                if(player.y < player.ground-100){
                     player.setDy(10);
                     up = false;
                 
@@ -132,6 +132,17 @@ public class Game {
         
     }
 
+    public boolean inAir(){
+       
+       if(player.getY()==200 | player.getY()==player.ground){
+           return false;
+       }
+
+       
+        return true;
+
+    }
+
 
     public void moveObjects() {
 
@@ -200,8 +211,11 @@ public class Game {
     public  void upHit(ActionEvent e) {
         //System.out.println("Up!!");
         //player.setY(100);
-        player.setDy(-10);
-        up = true;
+        if(inAir()==false){
+            player.setDy(-10);
+            up = true;
+        }
+        
         //System.out.println(player.getDy());
         
     }
