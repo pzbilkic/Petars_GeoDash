@@ -38,8 +38,9 @@ public class Triangle extends GameObject{
     @Override
     public void moveX(){
         x+=dx;
+        hit.setX((int)(x + dx)); 
         makeArray();
-        //System.out.println("triangle x: " + x);
+        //System.out.print("triangle x: " + x);
     }
     @Override
     public void moveY(){

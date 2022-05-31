@@ -38,7 +38,7 @@ public class GameObject {
 	//Method for PLayer intialization
 	public GameObject(int x, int y, int w, int h, Color c) {
 		this(x,y,w,h,c,0,0);
-		System.out.println("X: " + x);
+		//System.out.println("X: " + x);
 		this.rect = new Rectangle(x,y,w,h);
 		this.dy = 10;
 		this.hit = new Hitbox(h, w, x, y);
@@ -53,10 +53,19 @@ public class GameObject {
 		this.h = h;
 		this.color = c;
 		this.dx = -10;
-		this.hit = new Hitbox(w, h, x, y, true);
+		this.hit = new Hitbox(h, w, x, y, true);
 
 	}
 	public GameObject(int x2, int y2, int w2, int h2, Color c, int i, int j) {
+	}
+	public GameObject(int x, int y, int w, int h, Color c, double platform){
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
+		this.color = c;
+		this.dx = -10;
+		this.hit = new Hitbox(h, w, x, y);
 	}
 
 	/*
@@ -97,16 +106,17 @@ public class GameObject {
 			y+=dy;
 			rect.y = y;
 			rect.setLocation(rect.x+0, (int) (rect.y+dy));
-			//System.out.println(this.h);
+			
 		}
 
 	}
 	public void moveX() {
-		
+		this.x += dx;
 		hit.setX((int)(x + dx));
-	
+		
 		rect.setLocation((int) (rect.x+dx), rect.y+0);
 	}
+
 	public Rectangle getRect() {
 		return rect;
 	}

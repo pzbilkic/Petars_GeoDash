@@ -19,7 +19,7 @@ public class Game {
     //private Triangle hazard = new Triangle(200,200,30,30,new Color(25,25,150),true);
     
     private ArrayList<GameObject> objects = new ArrayList<>();
-    
+    private part placer = new part();
 
     public Game(){
         
@@ -39,29 +39,30 @@ public class Game {
     boolean up = false;
     public void updateGame() {
         //System.out.println("Moving Objects!!");
-        /*
-        if(!end){
+        
+        if(end){
             endGame();
-        }*/
-        
+        }
+        if(!end){
         moveObjects();
-        checkCollisions();
-        //System.out.println(player.hit.getX());
-        if(updates%100 == 0){
-            updateObjects();
+            checkCollisions();
+            //System.out.println(player.hit.getX());
+            if(updates%100 == 0){
+                updateObjects();
             
-        }
-        if(up == true){
-            if(player.y < 110){
-                player.setDy(10);
-                up = false;
+            }
+            if(up == true){
+                if(player.y < 110){
+                    player.setDy(10);
+                    up = false;
                 
-        }
+            }
         
-        }
+            }
       
-        count++;
-        updates+=1;
+            count++;
+            updates+=1;
+    }
         
 
     }
@@ -71,10 +72,16 @@ public class Game {
     }
 
     public void updateObjects(){
-        int tmp = (int) ( Math.random() * 2 + 1); // will return either 1 or 2
+        if(!end){
+            int tmp = (int) ( Math.random() * 6 + 1); // will return either 1 or 2
+            ArrayList<GameObject> temp = placer.createObjects(tmp);
+            objects.addAll(temp);
+        }
+        /*
         if(!end){
             createTri(tmp);
         }
+        */
   
         
     }
@@ -95,7 +102,8 @@ public class Game {
     public boolean checkCollisions() {
         for(GameObject o : objects){
             if(player.hit.checkCollision(o.hit)){
-                System.out.println("HIT");
+                //System.out.println("HIT");
+                end = true;
                 return true;
             }
         }
@@ -108,25 +116,21 @@ public class Game {
     /**
      * get it...
      */
-
+    private endgame END;
     public void endGame(){
-        if(checkCollisions()){
-            endgame END = new endgame(0, 0, 0, 0, new Color(225,0,0));
+        
+        END = new endgame(0, 0, 0, 0, new Color(225,0,0));
             
-            int counter = count;
-            String pappy = "Score:" + counter + "!";
+        int counter = count;
+        String pappy = "Score:" + counter + "!";
     
-            END.setScore(count);
-            END.setPappy(pappy);
+        END.setScore(count);
+        END.setPappy(pappy);
 
-            objects.add(END);
-            //end = true;
-        }
-
-
-      
-
-}
+        objects.add(END);
+        end = true;
+        
+    }
 
 
     public void moveObjects() {
@@ -147,15 +151,20 @@ public class Game {
      */
     public void drawTheGame(Graphics g) {
         String answer = count + "!";
-        player.draw(g);
-        
-        g.setColor(new ColorUIResource(100, 200, 10));
-        g.fillRect(0, 230, 500, 200);
-        for(GameObject go:this.objects) {
-            go.draw(g);
+        if(!end){
+            player.draw(g);
+            g.setColor(new ColorUIResource(100, 200, 10));
+            g.fillRect(0, 230, 500, 200);
+            for(GameObject go:this.objects) {
+                go.draw(g);
+            }
         }
+
         if(!end){
             g.drawString(answer, 10, 280);
+        }
+        if(end){
+            END.draw(g);
         }
 
 
@@ -189,7 +198,7 @@ public class Game {
     /** called when the up arrow is pressed.  You don't have to do anything
      * here, but you can if your game uses this event*/
     public  void upHit(ActionEvent e) {
-        System.out.println("Up!!");
+        //System.out.println("Up!!");
         //player.setY(100);
         player.setDy(-10);
         up = true;
@@ -199,7 +208,7 @@ public class Game {
     /** called when the up arrow is released.  You don't have to do anything
      * here, but you can if your game uses this event*/
     public void upReleased(ActionEvent e) {
-        System.out.println("Released ^^^^  Up!!");
+        //System.out.println("Released ^^^^  Up!!");
         //player.setDy(10);
         
     }

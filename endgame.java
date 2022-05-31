@@ -21,12 +21,12 @@ public class endgame extends GameObject{
     
     @Override
     public void draw(Graphics g) {
-        System.out.println(score);
+        //System.out.println(score);
         g.setColor(color);
         g.fillRect(0, 0, 500, 500);
-        g.setColor(new Color(50,50,50));
-        g.drawString("Game Over",400, 100);
-        g.drawString(pappy, 400, 10);
+        g.setColor(new Color(225,225,225));
+        g.drawString("Game Over",100, 100);
+        g.drawString(pappy, 100, 120);
 	}
 }
     

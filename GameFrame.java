@@ -101,7 +101,7 @@ public class GameFrame extends JFrame {
 		panel.getActionMap().put("up_key_r", new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("released the up arrow");
+				//System.out.println("released the up arrow");
 				game.upReleased(e);
 			}
 		});
@@ -110,7 +110,7 @@ public class GameFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("pressed up arrow");
+				//System.out.println("pressed up arrow");
 				game.upHit(e);
 			}
 		});
